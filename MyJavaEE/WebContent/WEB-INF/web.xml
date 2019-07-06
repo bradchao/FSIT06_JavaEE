@@ -4,4 +4,8 @@
     <param-name>uploadPath</param-name>
     <param-value>C:/Users/admin/git/javaee/MyJavaEE/WebContent/upload</param-value>
   </context-param>
+  <context-param>
+    <param-name>viewPath</param-name>
+    <param-value>C:/Users/admin/git/javaee/MyJavaEE/WebContent/views</param-value>
+  </context-param>
 </web-app>
