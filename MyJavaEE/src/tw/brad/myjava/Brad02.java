@@ -42,8 +42,10 @@ public class Brad02 extends HttpServlet {
 		while (names.hasMoreElements()) {
 			String name = names.nextElement();
 			String value = request.getParameter(name);
+			String nvalue = 
+				new String(value.getBytes("ISO-8859-1"), "UTF-8");
 			
-			writer.append(name + " = " + value + "<br>");
+			writer.append(name + " = " + nvalue + "<br>");
 		}
 		
 		writer.flush();
