@@ -17,12 +17,14 @@ public class Brad14 extends HttpServlet {
 		// 0 prepare
 		String x = request.getParameter("x");
 		String y = request.getParameter("y");
+		String op = request.getParameter("op");
 		if (x == null) x = "0";
 		if (y == null) y = "0";
+		if (op == null) op = "1";
 		
 		// 1. Model
-		Brad15 model = new Brad15(x, y);
-		int result = model.add();
+		Brad15 model = new Brad15(x, y, op);
+		double result = model.operation();
 		
 		// 2. View
 		String pline = String.format("Brad16?x=%s&y=%s&result=%s",
