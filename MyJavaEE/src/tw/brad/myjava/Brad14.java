@@ -27,8 +27,8 @@ public class Brad14 extends HttpServlet {
 		double result = model.operation();
 		
 		// 2. View
-		String pline = String.format("Brad16?x=%s&y=%s&result=%s",
-				x,y,result);
+		String pline = String.format("Brad16?x=%s&y=%s&op=%s&result=%s",
+				x,y,op,result);
 		RequestDispatcher rd = 
 			request.getRequestDispatcher(
 				pline);

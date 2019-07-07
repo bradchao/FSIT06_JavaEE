@@ -24,10 +24,21 @@ public class Brad16 extends HttpServlet {
 		
 		String x = request.getParameter("x");
 		String y = request.getParameter("y");
+		String op = request.getParameter("op");
 		String result = request.getParameter("result");
 		
 		String html = loadView("myview2.html");
-		String outHtml = String.format(html, x, y, result);
+		
+		String op1, op2, op3, op4; op1=op2=op3=op4="";
+		switch(op) {
+		case "1": op1="selected"; break;
+		case "2": op2="selected"; break;
+		case "3": op3="selected"; break;
+		case "4": op4="selected"; break;
+		}
+		
+		
+		String outHtml = String.format(html, x, op1,op2,op3,op4,y, result);
 		out.print(outHtml);
 	}
 	
