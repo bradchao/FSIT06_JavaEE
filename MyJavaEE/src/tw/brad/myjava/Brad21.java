@@ -75,4 +75,15 @@ public class Brad21 extends HttpServlet {
 		doGet(request, response);
 	}
 
+	
+	@Override
+	public void destroy() {
+		System.out.println("close");
+		if (conn!=null) {
+			try {
+			conn.close();
+			}catch(Exception e) {}
+		}
+		super.destroy();
+	}
 }
