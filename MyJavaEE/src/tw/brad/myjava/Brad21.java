@@ -18,6 +18,8 @@ import javax.servlet.http.HttpServletResponse;
 public class Brad21 extends HttpServlet {
 	private boolean isOK;
 	private Connection conn;
+	private String sql = "SELECT * FROM member WHERE account = ?";
+	private PreparedStatement pstmt;
 	
 	public Brad21() {
 		try {
@@ -28,7 +30,7 @@ public class Brad21 extends HttpServlet {
 			prop.put("serverTimezone", "Asia/Taipei");
 			conn = DriverManager.getConnection(
 				"jdbc:mysql://localhost:3307/iii", prop);			
-			
+			pstmt = conn.prepareStatement(sql);
 			isOK = true;
 		}catch(Exception e) {
 			isOK = false;
@@ -53,10 +55,8 @@ public class Brad21 extends HttpServlet {
 	}
 	
 	private boolean checkAccount(String account, String passwd) {
-		String sql = "SELECT * FROM member WHERE account = ?";
 		boolean ret = false;
 		try {
-			PreparedStatement pstmt = conn.prepareStatement(sql);
 			pstmt.setString(1, account);
 			ResultSet rs = pstmt.executeQuery();
 			if (rs.next()) {
