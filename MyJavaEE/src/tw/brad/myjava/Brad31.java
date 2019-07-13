@@ -10,20 +10,26 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
-@WebServlet("/Brad30")
-public class Brad30 extends HttpServlet {
+@WebServlet("/Brad31")
+public class Brad31 extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		response.setContentType("text/html;charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		request.setCharacterEncoding("UTF-8");
-		
-		HttpSession session = request.getSession();	// true => not exist => auto create
-		
-		Member member = new Member("brad", "Brad", 18);
-		session.setAttribute("member", member);
-		
-		
-		out.print("new session!");
+
+		HttpSession session = request.getSession(false);
+		if (session == null) {
+			// get out here
+			response.sendRedirect("Brad30");
+		}else {
+			// got it
+			Member member = (Member)session.getAttribute("member");
+			out.println("Account:" + member.getAccount() + "<br>");
+			out.println("Realname:" + member.getRealname() + "<br>");
+			out.println("age: " + member.getAge());
+			
+			
+		}
 		
 	}
 
