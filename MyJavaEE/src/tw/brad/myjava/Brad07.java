@@ -29,6 +29,7 @@ public class Brad07 extends HttpServlet {
 		for(String headerName : headerNames) {
 			String value = upload.getHeader(headerName);
 			System.out.println(headerName + ":" + value);
+			// .........filename:"c:\xxxx\xxx\brad.jpg"
 		}
 		
 		long size = upload.getSize();

@@ -42,15 +42,20 @@ public class Brad21 extends HttpServlet {
 		response.setContentType("text/html; charset=UTF-8");
 		PrintWriter out = response.getWriter();
 		
+		if (!isOK) {
+			response.sendError(HttpServletResponse.SC_INTERNAL_SERVER_ERROR, "xxxxxx");
+			return;
+		}
+		
 		String account = request.getParameter("account");
 		String passwd = request.getParameter("passwd");
 		
 		if (account == null) return;
 		boolean isMember = checkAccount(account, passwd);
 		if (isMember) {
-			out.println("OK");
+			response.sendRedirect("main.html");
 		}else {
-			out.println("XX");
+			response.sendRedirect("brad20.html");
 		}
 	}
 	

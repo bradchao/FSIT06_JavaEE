@@ -1,0 +1,22 @@
+<script>
+	document.cookie = "name=Brad";
+	document.cookie = "age=18";
+	
+	function getAllCookies(){
+		let decodeCookies = decodeURIComponent(document.cookie);
+		document.write(decodeCookies + "<hr>");
+		let cookiesArray = decodeCookies.split(";");
+		for (let i =0; i<cookiesArray.length; i++){
+			let cookie = cookiesArray[i];
+			let row = cookie.split("=");
+			document.write(row[0] + ":" + row[1] + "<br>");
+		}		
+	}
+	
+	function getCookieValue(key){
+		
+	}
+	
+	getAllCookies();
+	
+</script>
