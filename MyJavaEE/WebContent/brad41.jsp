@@ -7,8 +7,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-
-
+<%
+	int a = 10;
+%>
+<%! 
+	int b = 10; 	// static
+%>
+a = <%= a++ %><br>
+b = <%= b++ %><br>
 
 
 </body>
