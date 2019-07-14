@@ -9,24 +9,6 @@
 	user="root"
 	password="root"
 	/>
-<sql:transaction>
-	<sql:update var="n1">
-		INSERT INTO cust (cname,tel,birthday) VALUES (?,?,?)
-		<sql:param>Eric</sql:param>
-		<sql:param>1234567</sql:param>
-		<sql:param>1987-09-08</sql:param>
-	</sql:update>	
-
-	<sql:query var="lastid">
-		SELECT last_insert_id() as newid
-	</sql:query>
-	
-	<sql:update var="n2">
-		UPDATE cust SET tel = ? WHERE id = ?
-		<sql:param>777</sql:param>
-		<sql:param>1234567</sql:param>
-	</sql:update>	
-</sql:transaction>	
 
 <!DOCTYPE html>
 <html>
@@ -35,6 +17,33 @@
 <title>Add New</title>
 </head>
 <body>
+
+<c:catch>
+	<sql:transaction>
+		<sql:update var="n1">
+			INSERT INTO cust (cname,tel,birthday) VALUES (?,?,?)
+			<sql:param>Eric</sql:param>
+			<sql:param>1234567</sql:param>
+			<sql:param>1987-09-08</sql:param>
+		</sql:update>	
+	
+		<sql:query var="lastid">
+			SELECT last_insert_id() as newid
+		</sql:query>
+		
+		<sql:update var="n2">
+			UPDATE cust SET tel = ? WHERE id = ?
+			<sql:param>777</sql:param>
+			<sql:param>1234567</sql:param>
+		</sql:update>	
+	</sql:transaction>	
+	<c:if test="${n1 > 0 }">
+	LastId : ${lastid.rows[0].newid }
+	</c:if>
+
+</c:catch>
+
+
 
 </body>
 </html>
