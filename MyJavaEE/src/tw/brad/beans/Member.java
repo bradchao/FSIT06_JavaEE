@@ -6,6 +6,13 @@ public class Member{
 	// Field => property
 	private String id, name;
 	
+	public Member() {
+		this("000","no name");
+	}
+	private Member(String id, String name) {
+		this.id = id; this.name = name;
+	}
+	
 	// getter & setter
 	public String getId() {return id;}
 	public String getName() {return name;}

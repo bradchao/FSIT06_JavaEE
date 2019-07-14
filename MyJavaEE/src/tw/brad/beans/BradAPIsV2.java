@@ -1,6 +1,6 @@
 package tw.brad.beans;
 
-public class BradAPIs {
+public class BradAPIsV2 {
 	public static String createLottery() {
 		int rand = (int)(Math.random()*49+1);
 		return rand+"";

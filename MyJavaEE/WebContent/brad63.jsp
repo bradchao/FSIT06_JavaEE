@@ -34,9 +34,16 @@ Map1: ${map.key2 }<br>
 Map2: ${map[param.key] }<br>
 Username:page: ${pageScope.usernames[0] }<br>
 Username:request: ${requestScope.usernames[0] }<br>
-Lottery: <%= BradAPIs.createLottery() %><br>
+Lottery: <%= BradAPIsV2.createLottery() %><br>
 Lottery: ${BradAPIs.createLottery() }<br>
-${BradAPIs.sayYa(param.who) }
+${BradAPIs.sayYa(param.who) }<br>
+${10 + 3 }<br>
+${param.x } > ${param.y } => ${param.x > param.y }<br>
+${(param.x == "10") ? "Yes" : "No" }
+
+
+
+
 
 </body>
 </html>
