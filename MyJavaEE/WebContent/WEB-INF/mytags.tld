@@ -3,5 +3,13 @@
      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
      xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee
      web-jsptaglibrary_2_1.xsd">
-
+	<tlib-version>1.0</tlib-version>
+	<short-name>mytags</short-name>
+	
+	<tag>
+		<name>HelloBrad</name>
+		<tag-class>tw.brad.beans.MyTag</tag-class>
+		<body-content>empty</body-content>
+	</tag>
+	
 </taglib> 
