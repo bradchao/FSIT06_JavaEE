@@ -16,7 +16,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /*
-* 上傳影像, 打上浮水印, 再做輸出
+* 影像檔案打上浮水印, 再做輸出
 */
 @WebServlet("/Brad24")
 public class Brad24 extends HttpServlet {
